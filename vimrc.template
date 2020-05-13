@@ -1,1 +1,39 @@
-set number
+" set number " 行番号の表示
+set relativenumber " 現在行からのオフセット行数表示
+syntax on " シンタックスハイライト
+set title
+
+set nowritebackup
+set nobackup
+set noswapfile
+
+" ### Search ###
+set ignorecase " 大文字小文字の区別なし
+set smartcase " 小文字検索時 大文字小文字の区別なし
+set hlsearch " インクリメントサーチ
+set incsearch " 検索結果をハイライト
+set wrapscan " 末尾まで検索したらファイル先頭に戻る
+
+" ### 表示関係 ###
+set showmatch matchtime=1 " 対応する括弧を表示
+set showcmd " ウインドウ右下に入力中のコマンドを表示
+set cmdheight=2 " 表示欄を2行に
+set laststatus=2 " ステータス行を常に表示
+
+hi Comment ctermfg=3 " コメントの色変更
+
+set expandtab " タブ入力で半角スペース
+set shiftwidth=2 "
+set softtabstop=2
+set tabstop=2
+
+set smartindent
+set autoindent
+
+" set cursorcolumn " 強調表示
+set cursorline " 強調表示
+
+set wildmenu " コマンドの保管をメニュー形式で
+
+
+
