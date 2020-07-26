@@ -64,10 +64,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " インストールするプラグインをここに記述
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
+
 NeoBundle 'Lokaltog/vim-easymotion'
+" gitの差分を表示
+NeoBundle 'airblade/vim-gitgutter'
+let g:gitgutter_highlight_lines = 1
+set updatetime=250 " git更新タイミング[ms]
+
+" 補完
+NeoBundle 'Shougo/neocomplete.vim'
 
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
 filetype plugin indent on
 
+NeoBundleCheck
