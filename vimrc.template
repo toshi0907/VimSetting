@@ -3,6 +3,11 @@ set autoread " ファイルが変更されたら更新
 
 set scrolloff=999 " 常にカーソルを中心に
 
+" autocmd ColorScheme * highlight LineNr ctermbg=1
+autocmd ColorScheme * highlight LineNr ctermbg=0
+autocmd ColorScheme * highlight Normal ctermbg=0
+" グループ名参考
+" http://tech.alters.co.jp/vimrc/vimrc%E3%81%AEcolor%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E4%B8%80%E8%A6%A7/
 colorscheme evening
 
 set tags=./tags;,tags
@@ -84,6 +89,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'airblade/vim-gitgutter'
 let g:gitgutter_highlight_lines = 1
 set updatetime=250 " git更新タイミング[ms]
+
+NeoBundle 'tpope/vim-fugitive'
 
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
@@ -176,6 +183,17 @@ let Grep_Skip_Files = '*.bak *~'  "バックアップファイルを無視する
 " StatusLineカスタマイズ
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 call neobundle#end()
 
