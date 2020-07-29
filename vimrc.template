@@ -165,6 +165,10 @@ NeoBundle 'justmao945/vim-clang'
 let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
+" vim grep
+NeoBundle 'vim-scripts/grep.vim'
+nnoremap <expr> gr ':Rgrep<CR>' " grコマンドでGREP発動
+
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
