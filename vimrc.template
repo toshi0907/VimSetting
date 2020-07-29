@@ -44,6 +44,10 @@ set cursorline " 強調表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 
+" 末尾の空白を表示
+set listchars=trail:_
+set list
+
 set wildmenu " コマンドの補完をメニュー形式で
 
 """ キーマッピング
