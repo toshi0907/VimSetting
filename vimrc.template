@@ -169,6 +169,10 @@ let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 NeoBundle 'vim-scripts/grep.vim'
 nnoremap <expr> gr ':Rgrep<CR>' " grコマンドでGREP発動
 
+let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
+let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
+let Grep_Skip_Files = '*.bak *~'  "バックアップファイルを無視する
+
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
