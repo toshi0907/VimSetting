@@ -1,9 +1,11 @@
-set fileencodings=utf-8,sjis,euc-jp
+" set fileencodings=euc-jp,sjis,cp932,iso-2022-jp,utf-8
 set autoread " ファイルが変更されたら更新
 colorscheme evening
 
 set tags=./tags;,tags
 
+set listchars=trail:_
+set list
 
 " set number " 行番号の表示
 set relativenumber " 現在行からのオフセット行数表示
@@ -26,6 +28,7 @@ set showmatch matchtime=1 " 対応する括弧を表示
 set showcmd " ウインドウ右下に入力中のコマンドを表示
 set cmdheight=2 " 表示欄を2行に
 set laststatus=2 " ステータス行を常に表示
+" set statusline=%{(&fenc!=''?&fend:&enc)}
 
 " hi Comment ctermfg=3 " コメントの色変更
 
@@ -43,10 +46,6 @@ set cursorline " 強調表示
 " 全角空白を表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
-
-" 末尾の空白を表示
-set listchars=trail:_
-set list
 
 set wildmenu " コマンドの補完をメニュー形式で
 
