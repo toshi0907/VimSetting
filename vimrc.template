@@ -32,7 +32,7 @@ set showcmd " ウインドウ右下に入力中のコマンドを表示
 set cmdheight=2 " 表示欄を2行に
 set laststatus=2 " ステータス行を常に表示
 set cmdheight=2 " ステータス行を2行に
-" set statusline=%{(&fenc!=''?&fend:&enc)}
+" set statusline=File[%f]\ Line:%l\ %p[%{'%'}]%=\ %{'['.(&fenc!=''?&fenc:&enc).']'}\ Buf:%n " Vimデフォルトでの設定
 
 " hi Comment ctermfg=3 " コメントの色変更
 
@@ -172,6 +172,10 @@ nnoremap <expr> gr ':Rgrep<CR>' " grコマンドでGREP発動
 let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
 let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
 let Grep_Skip_Files = '*.bak *~'  "バックアップファイルを無視する
+
+" StatusLineカスタマイズ
+NeoBundle 'itchyny/lightline.vim'
+set t_Co=256
 
 call neobundle#end()
 

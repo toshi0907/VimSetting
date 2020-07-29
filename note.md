@@ -16,3 +16,6 @@ cd (target dir)
 ctags -R --languages=c++
  -> create "tags" file to working directory
 
+## Status Line
+lightline
+
