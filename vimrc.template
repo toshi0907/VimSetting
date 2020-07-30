@@ -195,6 +195,15 @@ let g:lightline = {
       \ },
       \ }
 
+
+" Tagリスト拡張
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'szw/vim-tags'
+
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1 " タグリストだけが表示されているときに自動的にVimを終了するか
+let Tlist_Use_Right_Window = 1 " タグ画面を右に表示するか
+
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
