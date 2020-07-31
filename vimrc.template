@@ -1,4 +1,4 @@
-" set fileencodings=euc-jp,sjis,cp932,iso-2022-jp,utf-8
+set fileencodings=euc-jp,sjis,cp932,iso-2022-jp,utf-8
 set autoread " ファイルが変更されたら更新
 
 set scrolloff=999 " 常にカーソルを中心に
@@ -93,6 +93,14 @@ set updatetime=250 " git更新タイミング[ms]
 NeoBundle 'tpope/vim-fugitive'
 
 " 補完
+
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
+" 補完ウインドウ上下キーで移動
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+
 NeoBundle 'Shougo/neocomplete.vim'
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
