@@ -15,8 +15,8 @@ set tags=./tags;,tags
 set listchars=trail:_
 set list
 
-" set number " 行番号の表示
-set relativenumber " 現在行からのオフセット行数表示
+set number " 行番号の表示
+" set relativenumber " 現在行からのオフセット行数表示
 syntax on " シンタックスハイライト
 set title
 
