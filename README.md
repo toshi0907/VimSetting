@@ -12,6 +12,12 @@ This repo is just for myself to study vim.
 
 :Tlist
 
+### hotkey
+
+- open taglist
+
+    tl
+
 ### setting for use
 
 cd (target dir)
