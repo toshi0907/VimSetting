@@ -177,8 +177,8 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 NeoBundle 'justmao945/vim-clang'
 
 " set clang options for vim-clang
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
+" let g:clang_c_options = '-std=c11'
+" let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
 vmap <C-F> :!clang-format<CR>
 
@@ -215,6 +215,8 @@ let Tlist_Exit_OnlyWindow = 1 " タグリストだけが表示されていると
 let Tlist_Use_Right_Window = 1 " タグ画面を右に表示するか
 let Tlist_Compact_Format = 1 "デフォルト表示かコンパクト表示か
 let Tlist_WinWidth = 60 "画面を左右に分割した場合の、タグ画面の初期幅
+
+nnoremap tl :Tlist<CR>
 
 " 自動保存
 NeoBundle 'vim-scripts/vim-auto-save'
