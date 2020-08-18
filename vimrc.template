@@ -80,8 +80,8 @@ nnoremap W b
 
 let mapleader = "\<Space>"
 " nnoremap <leader>q :q!
-nnoremap <leader>p "0p
-nnoremap <leader>P "0P
+" nnoremap <leader>p "0p
+nnoremap <leader>p daw"0P
 
 if has('vim_starting')
      " 初回起動時のみruntimepathにneobundleのパスを指定する
