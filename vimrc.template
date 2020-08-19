@@ -6,11 +6,10 @@ au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 set scrolloff=999 " 常にカーソルを中心に
 
 " autocmd ColorScheme * highlight LineNr ctermbg=1
-autocmd ColorScheme * highlight LineNr ctermbg=0
-autocmd ColorScheme * highlight Normal ctermbg=0
+" autocmd ColorScheme * highlight LineNr ctermbg=0
+" autocmd ColorScheme * highlight Normal ctermbg=0
 " グループ名参考
 " http://tech.alters.co.jp/vimrc/vimrc%E3%81%AEcolor%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E4%B8%80%E8%A6%A7/
-colorscheme evening
 
 set tags=./tags
 
@@ -101,8 +100,12 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Lokaltog/vim-easymotion'
 " gitの差分を表示
 NeoBundle 'airblade/vim-gitgutter'
-let g:gitgutter_highlight_lines = 1
-set updatetime=250 " git更新タイミング[ms]
+" let g:gitgutter_highlight_lines = 1
+" let g:gitgutter_override_sign_column = 0
+" highlight SignColumn ctermbg=blue
+" highlight GitGutterAdd ctermfg=black ctermbg=black
+" highlight GitGutterAddLine ctermfg=white ctermbg=green
+set updatetime=500 " git更新タイミング[ms]
 
 NeoBundle 'tpope/vim-fugitive'
 
@@ -236,6 +239,23 @@ nnoremap tl :Tlist<CR><C-w>l
 NeoBundle 'vim-scripts/vim-auto-save'
 let g:auto_save = 1 " 常に自動保存
 let g:auto_save_in_insert_mode = 0 " インサートモード中は保存しない
+
+" カラー関係
+NeoBundle 'ujihisa/unite-colorscheme'
+" コマンド ＝＞ :Unite colorscheme -auto-preview
+
+NeoBundle 'tomasr/molokai'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+
+" $(home)/.vim/colors というディレクトリを作成する
+" $(home)/.vim/bundle/molokai/colors/molokai.vim ファイルを上記のフォルダへ放り込む というディレクトリを作成する
+
+set background=dark
+colorscheme molokai
+" colorscheme solarized
+" colorscheme evening
 
 call neobundle#end()
 
