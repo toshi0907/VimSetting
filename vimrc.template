@@ -227,7 +227,7 @@ let Tlist_Use_Right_Window = 1 " タグ画面を右に表示するか
 let Tlist_Compact_Format = 1 "デフォルト表示かコンパクト表示か
 let Tlist_WinWidth = 60 "画面を左右に分割した場合の、タグ画面の初期幅
 
-nnoremap tl :Tlist<CR>
+nnoremap tl :Tlist<CR><C-w>l
 
 " 自動保存
 NeoBundle 'vim-scripts/vim-auto-save'
