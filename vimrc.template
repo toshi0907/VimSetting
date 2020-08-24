@@ -259,6 +259,12 @@ colorscheme molokai
 " colorscheme solarized
 " colorscheme evening
 
+" MultipleSearch
+NeoBundle 'vim-scripts/MultipleSearch'
+let g:MultipleSearchColorSequence = "yellow,yellow, yellow, yellow, yellow, yellow, yellow, yellow  "
+let g:MultipleSearchTextColorSequence = "black,black,black,black,black,black,black,black"
+nnoremap <Leader>/ :SearchBuffers 
+
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
