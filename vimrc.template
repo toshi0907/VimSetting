@@ -262,9 +262,12 @@ colorscheme molokai
 
 " MultipleSearch
 NeoBundle 'vim-scripts/MultipleSearch'
-let g:MultipleSearchColorSequence = "yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow"
+let g:MultipleSearchMaxColors = 8
+let g:MultipleSearchColorSequence = "white, white, white, white, white, white, white, white"
 let g:MultipleSearchTextColorSequence = "black, black, black, black, black, black, black, black"
 nnoremap <Leader>/ :SearchBuffers 
+nnoremap / :SearchBuffers 
+nnoremap * viwy:SearchBuffers <C-r>"<CR>
 
 call neobundle#end()
 
