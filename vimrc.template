@@ -74,7 +74,8 @@ inoremap <silent> jj <ESC>
 " inoremap <C-l> <Right>
 
 " ESC連打でハイライト解除
-nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
+
 nnoremap W b
 
 let mapleader = "\<Space>"
@@ -263,8 +264,8 @@ colorscheme molokai
 " MultipleSearch
 NeoBundle 'vim-scripts/MultipleSearch'
 let g:MultipleSearchMaxColors = 8
-let g:MultipleSearchColorSequence = "white, white, white, white, white, white, white, white"
-let g:MultipleSearchTextColorSequence = "black, black, black, black, black, black, black, black"
+let g:MultipleSearchColorSequence = "yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow"
+let g:MultipleSearchTextColorSequence = "red, red, red, red, red, red, red, red"
 nnoremap <Leader>/ :SearchBuffers 
 nnoremap / :SearchBuffers 
 nnoremap * viwy:SearchBuffers <C-r>"<CR>
