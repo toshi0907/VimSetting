@@ -1,5 +1,5 @@
 #!/bin/sh
-cp ~/.vimrc ./vimrc.template
+# cp ~/.vimrc ./vimrc.template
 git diff
 
 read -p "ok?"
