@@ -60,6 +60,8 @@ au BufNewFile,BufRead * match ZenkakuSpace /　/
 set wildmenu " コマンドの補完をメニュー形式で
 
 """ キーマッピング
+" 自分用メモを開く
+nnoremap <C-n> :e ~/.vim/note.md<CR>:Search ^#<CR>
 
 " 文字コード変更
 nnoremap <expr><C-e> ':e ++enc=euc-jp<CR>' " 文字コードeuc
