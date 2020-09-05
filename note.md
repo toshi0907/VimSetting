@@ -14,3 +14,8 @@ lightline
 
 nnoremap : keymap for normal mode
 inoremap : keymap for insert mode
+
+# Else
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'mattesgroeger/vim-bookmarks'
+
