@@ -79,8 +79,11 @@ let mapleader = "\<Space>"
 nnoremap <leader>y viwy
 nnoremap <leader>p viw"0P
 
+" ウインドウ
 nnoremap <leader>k <C-w>k
 nnoremap <leader>j <C-w>j
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
 
 if has('vim_starting')
      " 初回起動時のみruntimepathにneobundleのパスを指定する
@@ -273,9 +276,20 @@ nnoremap * viwy:Search <C-r>"<CR>
 " ESC連打でハイライト解除
 nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
 
+" 末尾の全角と半角の空白文字を赤くハイライト
+" NeoBundle 'bronson/vim-trailing-whitespace'
+
+" インデントの可視化
+" NeoBundle 'Yggdroot/indentLine'
+
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'mattesgroeger/vim-bookmarks'
+
 call neobundle#end()
 
 " ファイルタイプ別のプラグイン/インデントを有効にする
 filetype plugin indent on
 
 NeoBundleCheck
+
+source ~/.vim/myCommand.vim
