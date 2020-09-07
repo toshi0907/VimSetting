@@ -283,7 +283,16 @@ nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
 " NeoBundle 'Yggdroot/indentLine'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
+
+" bookmark
 NeoBundle 'mattesgroeger/vim-bookmarks'
+let g:bookmark_sign = '>>'
+" default key map
+nmap mm :BookmarkToggle<CR>
+nmap mn :BookmarkNext<CR>
+nmap mp :BookmarkPrev<CR>
+nmap ma :BookmarkShowAll<CR>
+nmap mx :BookmarkClearAll<CR>
 
 call neobundle#end()
 
