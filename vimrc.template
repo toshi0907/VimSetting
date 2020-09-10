@@ -195,7 +195,7 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Install vim-clang
-" NeoBundle 'justmao945/vim-clang'
+NeoBundle 'justmao945/vim-clang'
 
 " set clang options for vim-clang
 " let g:clang_c_options = '-std=c11'
@@ -203,7 +203,8 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " let g:clang_c_options = '-std=c11'
 " let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
-" vmap <C-F> :!clang-format<CR>
+" この変換を使用するには行選択「V」が必要
+vmap <C-F> :!clang-format<CR>gv:s/} else/}\relse/<CR>gv==
 
 " vim grep
 NeoBundle 'vim-scripts/grep.vim'
