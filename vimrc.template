@@ -196,6 +196,8 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 
 " Install vim-clang
 NeoBundle 'justmao945/vim-clang'
+" disable autocomplete
+let g:clang_auto = 0
 
 " set clang options for vim-clang
 " let g:clang_c_options = '-std=c11'
@@ -211,8 +213,8 @@ NeoBundle 'vim-scripts/grep.vim'
 nnoremap <expr> gr ':Rgrep<CR>' " grコマンドでGREP発動
 
 let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
+let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp*' "無視するファイル
 let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
-let Grep_Skip_Files = '*.bak *~'  "バックアップファイルを無視する
 
 " StatusLineカスタマイズ
 NeoBundle 'itchyny/lightline.vim'
