@@ -4,6 +4,7 @@ set autoread " ファイルが変更されたら更新
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 set scrolloff=999 " 常にカーソルを中心に
+set nf="" " 数字はすべて10進数として扱う
 
 " autocmd ColorScheme * highlight LineNr ctermbg=1
 " autocmd ColorScheme * highlight LineNr ctermbg=0
@@ -196,8 +197,9 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 
 " Install vim-clang
 NeoBundle 'justmao945/vim-clang'
-" disable autocomplete
-let g:clang_auto = 0
+
+let g:clang_auto = 0 " disable autocomplete
+let g:clang_diagsopt = ''   " <- disable diagnostics
 
 " set clang options for vim-clang
 " let g:clang_c_options = '-std=c11'
@@ -206,11 +208,12 @@ let g:clang_auto = 0
 " let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 
 " この変換を使用するには行選択「V」が必要
-vmap <C-F> :!clang-format<CR>gv:s/} else/}\relse/<CR>gv==
+vmap <C-F> :!clang-format<CR>
+nnoremap <C-F> <S-v>:!clang-format<CR><S-v>=j
 
 " vim grep
 NeoBundle 'vim-scripts/grep.vim'
-nnoremap <expr> gr ':Rgrep<CR>' " grコマンドでGREP発動
+nnoremap <expr> gr ':Rgrep -i <CR>' " grコマンドでGREP発動
 
 let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
 let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp*' "無視するファイル
