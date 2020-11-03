@@ -1,5 +1,5 @@
 set fileencodings=euc-jp,sjis,cp932,iso-2022-jp,utf-8
-set autoread " ファイルが変更されたら更新
+set autoread
 
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
@@ -62,10 +62,18 @@ set wildmenu " コマンドの補完をメニュー形式で
 
 """ キーマッピング
 " 自分用メモを開く
-nnoremap <C-n> :e ~/.vim/note.md<CR>:Search ^#<CR>
+nnoremap <C-t> :e ~/.vim/note.md<CR>:Search ^##<CR>
+
+" コンフリクト箇所へ移動
+nnoremap cn :SearchBuffers \(^<<<<<<<\\|^>>>>>>>\\|^=======$\)<CR>n
+nnoremap cb :SearchBuffers \(^<<<<<<<\\|^>>>>>>>\\|^=======$\)<CR><S-n>
 
 " 文字コード変更
-nnoremap <expr><C-e> ':e ++enc=euc-jp<CR>' " 文字コードeuc
+" nnoremap <expr><leader><C-e> ':e ++enc=euc-jp<CR>'
+command! EncChangeEucjp :e ++enc=euc-jp<CR>
+command! EncChangeSjis :e ++enc=sjis<CR>
+command! EncChangeUtf8 :e ++enc=utf-8<CR>
+" nnoremap <expr><C-e> ':e ++enc=utf-8<CR>'
 
 " jjでエスケープ
 inoremap <silent> jj <ESC>
@@ -85,6 +93,10 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>j <C-w>j
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
+
+" 画面描画
+" nnoremap k k<C-l>
+" nnoremap j j<C-l>
 
 if has('vim_starting')
      " 初回起動時のみruntimepathにneobundleのパスを指定する
@@ -216,7 +228,7 @@ NeoBundle 'vim-scripts/grep.vim'
 nnoremap <expr> gr ':Rgrep -i <CR>' " grコマンドでGREP発動
 
 let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
-let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp*' "無視するファイル
+let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp* *.Debug *.Release *.moc *.o' "無視するファイル
 let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
 
 " StatusLineカスタマイズ
@@ -227,7 +239,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'absolutepath', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
@@ -277,7 +289,7 @@ let g:MultipleSearchTextColorSequence = "red, red, red, red, red, red, red, red"
 
 " 標準の検索を置き換え
 nnoremap / :Search 
-nnoremap * viwy:Search <C-r>"<CR>
+nnoremap * viwy:Search <C-r>"
 
 " ESC連打でハイライト解除
 nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
@@ -299,6 +311,36 @@ nmap mn :BookmarkNext<CR>
 nmap mp :BookmarkPrev<CR>
 nmap ma :BookmarkShowAll<CR>
 nmap mx :BookmarkClearAll<CR>
+
+" Markdown
+NeoBundle 'tpope/vim-markdown'
+
+NeoBundle 'LeafCage/yankround.vim'
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+" nmap <C-m> <Plug>(yankround-prev)
+" nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 50
+" :CtrlPYankRound
+" `<CR>`で、その履歴をカーソル位置の前に挿入します。`P`
+" `<C-v>`で、その履歴をカーソル位置の後ろに挿入します。`p`
+" `<C-s>`(`<C-x>`, `<C-CR>`)で、無名レジスタ `"` にその履歴をセットします。
+" `<C-z>`でマークして、`<F7>`でその履歴を履歴から削除します。
+
+let g:yankround_use_region_hl = 1
+
+NeoBundle 'aklt/plantuml-syntax'
+
+NeoBundle 'zivyangll/git-blame.vim'
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+NeoBundle 'simeji/winresizer'
+" Ctrl + E でリサイズ開始 Enterで確定
 
 call neobundle#end()
 
