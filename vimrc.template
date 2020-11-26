@@ -314,6 +314,7 @@ nmap mx :BookmarkClearAll<CR>
 
 " Markdown
 NeoBundle 'tpope/vim-markdown'
+let g:markdown_fenced_languages = ['cpp', 'bash=sh']
 
 NeoBundle 'LeafCage/yankround.vim'
 nmap p <Plug>(yankround-p)
