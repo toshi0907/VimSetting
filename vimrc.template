@@ -62,7 +62,7 @@ set wildmenu " コマンドの補完をメニュー形式で
 
 """ キーマッピング
 " 自分用メモを開く
-nnoremap <C-t> :e ~/.vim/note.md<CR>:Search ^##<CR>
+nnoremap <C-t> :e ~/.vim/note.md<CR>:Search ^##<CR>:Voom markdown<CR><C-w>h
 
 " コンフリクト箇所へ移動
 nnoremap cn :SearchBuffers \(^<<<<<<<\\|^>>>>>>>\\|^=======$\)<CR>n
@@ -228,7 +228,7 @@ NeoBundle 'vim-scripts/grep.vim'
 nnoremap <expr> gr ':Rgrep -i <CR>' " grコマンドでGREP発動
 
 let Grep_Skip_Dirs = '.svn .git CVS'  "無視するディレクトリ
-let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp* *.Debug *.Release *.moc *.o' "無視するファイル
+let Grep_Skip_Files = '*.bak *~ tags .#* *.orig *.nkftmp* *.Debug *.Release *.moc *.o *.rej' "無視するファイル
 let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
 
 " StatusLineカスタマイズ
@@ -257,7 +257,7 @@ let Tlist_Use_Right_Window = 1 " タグ画面を右に表示するか
 let Tlist_Compact_Format = 1 "デフォルト表示かコンパクト表示か
 let Tlist_WinWidth = 60 "画面を左右に分割した場合の、タグ画面の初期幅
 
-nnoremap tl :Tlist<CR><C-w>l
+nnoremap tl :Tlist<CR><C-w>l<CR><C-w>l<CR><C-w>l
 
 " 自動保存
 NeoBundle 'vim-scripts/vim-auto-save'
@@ -301,6 +301,9 @@ nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
 " NeoBundle 'Yggdroot/indentLine'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'c' " default ra
+let g:ctrlp_switch_buffer = '0' " don't jump
+let g:ctrlp_max_depth = 4
 
 " bookmark
 NeoBundle 'mattesgroeger/vim-bookmarks'
@@ -342,6 +345,10 @@ nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
 NeoBundle 'simeji/winresizer'
 " Ctrl + E でリサイズ開始 Enterで確定
+
+NeoBundle 'tpope/vim-surround'
+
+NeoBundle 'vim-scripts/VOoM'
 
 call neobundle#end()
 
