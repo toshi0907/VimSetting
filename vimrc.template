@@ -379,5 +379,18 @@ filetype plugin indent on
 
 NeoBundleCheck
 
+let individual_setting_dir = "~/.vim"
+if finddir(individual_setting_dir) == ""
+  echo "make " . individual_setting_dir . " dir!"
+  execute mkdir(individual_setting_dir)
+endif
+
+let individual_setting_file = "~/.vim/mySetting.vim"
+if findfile(individual_setting_file) == ""
+  echo "make " . individual_setting_file . " file!"
+  execute "redir > " . individual_setting_file
+  redir END
+endif
+
 source ~/.vim/mySetting.vim " 環境ごとに変えたい設定
 
