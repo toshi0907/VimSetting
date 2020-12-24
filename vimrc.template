@@ -78,6 +78,11 @@ command! EncChangeUtf8 :e ++enc=utf-8<CR>
 
 :command! VIMRC   :source ~/.vimrc
 
+:command! OpVimrc         :edit ~/.vimrc
+:command! OpVimrcSetting  :edit ~/.vim/mySetting.vim
+
+:command! OpBashrc        :edit ~/.bashrc
+
 " command setting should define by using CAPITAL first
 " command! q :q!
 " command! qa :qa!
