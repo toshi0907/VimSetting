@@ -60,6 +60,8 @@ au BufNewFile,BufRead * match ZenkakuSpace /　/
 
 set wildmenu " コマンドの補完をメニュー形式で
 
+filetype on " ファイルタイプの設定ON
+
 """ キーマッピング
 
 " 自分用メモを開く
@@ -80,7 +82,6 @@ command! EncChangeUtf8 :e ++enc=utf-8<CR>
 
 :command! OpVimrc         :edit ~/.vimrc
 :command! OpVimrcSetting  :edit ~/.vim/mySetting.vim
-
 :command! OpBashrc        :edit ~/.bashrc
 
 " command setting should define by using CAPITAL first
@@ -395,6 +396,39 @@ if findfile(individual_setting_file) == ""
   echo "make " . individual_setting_file . " file!"
   execute "redir > " . individual_setting_file
   redir END
+endif
+
+" 自分用のUnite menu
+if !exists('g:unite_source_menu_menus')
+  let g:unite_source_menu_menus = {}
+endif
+
+let g:unite_source_menu_menus.my_openfile= {
+      \    'description': 'open file'
+      \ }
+
+function! g:unite_source_menu_menus.my_openfile.map(key, value)
+  return {
+        \   'word': a:key,
+        \   'kind': 'command',
+        \   'action__command': a:value
+        \ }
+endfunction
+
+let g:unite_source_menu_menus.my_openfile.command_candidates = [
+      \   ['bashrc', 'OpBashrc'],
+      \   ['vimrc', 'OpVimrc'],
+      \   ['vimrc mySetting.vim', 'OpVimrcSetting'],
+      \ ]
+
+nnoremap <Leader>m :Unite menu<CR>
+
+" ================================================ 以下メモ
+
+" バージョンごとの設定
+" (checking version 6.2 or later): >
+if v:version > 602 || v:version == 602
+
 endif
 
 source ~/.vim/mySetting.vim " 環境ごとに変えたい設定
