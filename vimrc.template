@@ -102,6 +102,9 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 let mapleader = "\<Space>"
+
+" 行末までヤンク
+nnoremap Y y$
 nnoremap <leader>y viwy
 nnoremap <leader>p viw"0P
 
@@ -265,17 +268,21 @@ let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
 
+function! LightlinePWD()
+  return getcwd()
+endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'absolutepath', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'absolutepath', 'myfullpath', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'myfullpath': 'LightlinePWD',
       \ },
       \ }
-
 
 " Tagリスト拡張
 NeoBundle 'vim-scripts/taglist.vim'
@@ -333,7 +340,7 @@ nnoremap <ESC><ESC> :SearchBuffersReset<CR>:nohlsearch<CR>
 " NeoBundle 'Yggdroot/indentLine'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'c' " default ra
+let g:ctrlp_working_path_mode = 'w' " default ra 'w' means currend dir
 let g:ctrlp_switch_buffer = '0' " don't jump
 let g:ctrlp_max_depth = 4
 
