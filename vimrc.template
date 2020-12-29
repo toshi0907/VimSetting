@@ -301,7 +301,6 @@ endfunction
 command! -nargs=1 -complete=custom,s:lightline_colorschemes LightlineColorscheme
       \ call s:set_lightline_colorscheme(<q-args>)
 " usage => :LightlineColorscheme wombat
-" TODO 自作カラースキーム
 
 function! LightlinePWD()
   return getcwd()
@@ -316,7 +315,6 @@ function! LightlineCheckDir()
 endfunction
 
 autocmd BufEnter,BufNewFile,BufRead * :call LightlineCheckDir()
-" call LightlineCheckDir()
 
 " Tagリスト拡張
 NeoBundle 'vim-scripts/taglist.vim'
