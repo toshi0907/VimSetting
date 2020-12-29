@@ -268,10 +268,6 @@ let Grep_Default_Options = '-I'   "バイナルファイルがgrepしない
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
 
-function! LightlinePWD()
-  return getcwd()
-endfunction
-
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -307,6 +303,20 @@ command! -nargs=1 -complete=custom,s:lightline_colorschemes LightlineColorscheme
 " usage => :LightlineColorscheme wombat
 " TODO 自作カラースキーム
 
+function! LightlinePWD()
+  return getcwd()
+endfunction
+
+function! LightlineCheckDir()
+  let strcwd = getcwd()
+  " vim設定のファイル編集
+  if stridx(strcwd, "/.vim/") > 0
+    LightlineColorscheme wombat_red
+  endif
+endfunction
+
+autocmd BufEnter,BufNewFile,BufRead * :call LightlineCheckDir()
+" call LightlineCheckDir()
 
 " Tagリスト拡張
 NeoBundle 'vim-scripts/taglist.vim'
