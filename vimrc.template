@@ -307,10 +307,13 @@ function! LightlinePWD()
 endfunction
 
 function! LightlineCheckDir()
-  let strcwd = getcwd()
+  let strcwd = getcwd() " カレントディレクトリ
+  let strfilepath = expand("%:p") " ファイル名フルパス
   " vim設定のファイル編集
-  if stridx(strcwd, "/.vim/") > 0
+  if stridx(strfilepath, "/.vim") > 0
     LightlineColorscheme wombat_red
+  else
+    LightlineColorscheme wombat
   endif
 endfunction
 
@@ -465,6 +468,15 @@ let g:unite_source_menu_menus.my_openfile.command_candidates = [
       \ ]
 
 nnoremap <Leader>m :Unite menu<CR>
+
+" 空で起動した場合にメニューを表示する
+function! StartupMenu()
+  if expand("%") == ""
+    Unite menu
+  endif
+endfunction
+
+autocmd VimEnter * :call StartupMenu()
 
 " ================================================ 以下メモ
 
